@@ -1,14 +1,13 @@
+import Header from "@/components/Header";
 
-export default function RootLayout({
+export default function PagesLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        {children}
-      </body>
-    </html>
-  )
+  return <>
+  <Header/>
+  {children}
+  
+  </>;
 }
