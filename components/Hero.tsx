@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36 h-screen">
+    <div className="pb-20 pt-36">
       <div>
         {/* <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-60"
@@ -28,6 +28,7 @@ const Hero = () => {
         className={cn(
           "absolute inset-0",
           "bg-size-[80px_80px]",
+          "h-2/6",
           "bg-[linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
           "dark:bg-[linear-gradient(to_right,#262626_1px,transparent_.5px),linear-gradient(to_bottom,#262626_.4px,transparent_.6px)]",
         )}
