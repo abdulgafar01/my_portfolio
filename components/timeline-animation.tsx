@@ -45,7 +45,7 @@ export const TimelineAnimation = <T extends keyof HTMLElementTagNameMap = 'div'>
     once,
   });
 
-  const MotionComponent = m[as || 'div'] as React.ElementType;
+  const MotionComponent = (m[as || 'div'] as unknown) as React.ComponentType<any>;
 
   return (
     <MotionComponent
