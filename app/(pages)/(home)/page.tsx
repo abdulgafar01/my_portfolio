@@ -1,8 +1,11 @@
 
-import { FeaturedProjects } from '@/components/FeaturedProjects'
+import { MyApproach } from '@/components/MyApproach'
+import SelectedWork from '@/components/selected-work'
 import Grid from '@/components/Grid'
 import Hero from '@/components/Hero'
 import ScrollText from '@/components/ScrollRevealParagraph'
+import Strip from '@/components/strip'
+import Container from '@/components/layout/Container'
 
 
 const page = () => {
@@ -32,18 +35,19 @@ const page = () => {
     // </main>
 
     <main className="bg-white dark:bg-black-100">
-
       <Hero />
-      <div className="mx-auto max-w-7xl px-5 sm:px-10">
+      <Strip />
+
+      <SelectedWork />
+      <Container>
         <Grid />
-        <FeaturedProjects />
-      </div>
+      </Container>
+      <MyApproach />
+
 
       <ScrollText />
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-10">
-        {/* next sections */}
-      </div>
+
     </main>
   )
 }

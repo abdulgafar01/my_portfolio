@@ -88,10 +88,10 @@ const Nav = () => {
             </nav>
 
             <m.nav
-                initial={{ y: 80, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.25, ease: 'easeOut' }}
-                className='fixed bottom-0 left-0 right-0 flex items-center justify-around rounded-t-3xl border-t border-white/10 bg-[#111111]/95 px-2 py-2 shadow-[0_-8px_24px_rgba(0,0,0,0.25)] backdrop-blur sm:hidden'
+                initial={{ y: 24, opacity: 0 }}
+                animate={isHidden ? { y: 24, opacity: 0 } : { y: 0, opacity: 1 }}
+                transition={{ type: 'spring', stiffness: 280, damping: 30, mass: 0.6, duration: 0.3 }}
+                className='fixed bottom-2 left-1/2 flex w-[calc(100%-1.5rem)] max-w-90 -translate-x-1/2 items-center justify-around rounded-[24px] border border-white/10 bg-[#111111]/90 px-1.5 py-1.5 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:hidden'
             >
                 {navItems.map(({ name, link, icon: Icon }) => {
                     const active = isActiveLink(link);
@@ -103,13 +103,17 @@ const Nav = () => {
                             whileTap={{ scale: 0.94 }}
                             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                             className={clsx(
-                                'flex flex-1 flex-col items-center justify-center rounded-2xl px-2 py-2 text-[11px] font-medium transition-colors',
-                                active ? 'text-white' : 'text-white/60 hover:text-white'
+                                'flex flex-1 flex-col items-center justify-center rounded-[18px] px-1.5 py-2 text-[10px] font-medium tracking-[0.01em] transition-all duration-200',
+                                active ? 'text-white' : 'text-white/60 hover:text-white/90'
                             )}
                             aria-current={active ? 'page' : undefined}
                         >
                             <m.span
-                                animate={{ scale: active ? 1.05 : 1, backgroundColor: active ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0)' }}
+                                animate={{
+                                    scale: active ? 1.04 : 1,
+                                    backgroundColor: active ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0)',
+                                    boxShadow: active ? '0 0 0 1px rgba(255,255,255,0.08)' : '0 0 0 0 rgba(255,255,255,0)',
+                                }}
                                 transition={{ duration: 0.2 }}
                                 className='mb-1 flex h-8 w-8 items-center justify-center rounded-full'
                             >

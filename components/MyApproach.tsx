@@ -3,69 +3,63 @@
 import React from 'react'
 import { m } from 'motion/react'
 import { Button } from './ui/button'
+import Container from './layout/Container'
 
-const featuredProjects = [
+const approachSteps = [
   {
     number: '01',
-    title: 'Who We Are',
+    title: 'Discovery & Strategy',
     description:
-      'A diverse collective of thinkers, makers, and problem solvers dedicated to pushing boundaries.',
-    demoLink: 'https://www.kreativy.com/',
-    githubLink: 'https://github.com/',
+      'Every successful product starts with understanding the problem. I take time to learn about the users, business goals, and project requirements before making technical decisions.',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800',
   },
   {
     number: '02',
-    title: 'What Do We Do',
+    title: 'Design & Architecture',
     description:
-      'We craft digital experiences that resonate, using state-of-the-art technology and timeless design.',
-    demoLink: 'https://www.kreativy.com/',
-    githubLink: 'https://github.com/',
+      'Before development begins, I plan the application structure, user experience, and technical architecture so the product is scalable, maintainable, and built on a strong foundation.',
     image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800',
   },
   {
     number: '03',
-    title: 'How Do We Help',
+    title: 'Development & Collaboration',
     description:
-      'Through deep collaboration and strategic thinking, we help brands navigate the modern digital landscape.',
-      demoLink: 'https://www.kreativy.com/',  
-      image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800"
+      'This is where ideas become reality. I build responsive, high-performance applications while keeping you informed through regular progress updates, demos, and feedback loops.',
+    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800',
   },
   {
     number: '04',
-    title: 'Create Success',
+    title: 'Testing, Launch & Improvement',
     description:
-      'Our goal is measurable impact and lasting legacy for every client we partner with.',
-      demoLink: 'https://www.kreativy.com/',
-      image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800"
+      'Before launch, every feature is tested for performance, accessibility, and reliability. After deployment, I continue refining the product as user needs and business goals evolve.',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800',
   },
 ]
 
-export const FeaturedProjects = () => {
+export const MyApproach = () => {
   const [hoveredProject, setHoveredProject] = React.useState<string | null>(null)
 
   return (
     <section className="py-32 px-6  text-black dark:text-white overflow-hidden relative min-h-screen">
-      <div className="max-w-7xl mx-auto z-10 relative">
+      <Container className="max-w-7xl mx-auto z-10 relative">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
           <h2 className="text-5xl md:text-6xl font-semibold tracking-tighter">
-            My Featured <br />
-            <span className="italic">Projects</span>
+            My Engineering<br />
+            <span className="italic">Approach</span>
           </h2>
           <div className="max-w-md space-y-6">
             <p className="text-zinc-500 text-lg md:text-xl text-pretty leading-relaxed">
-              I create thoughtful digital work that blends aesthetics, clarity,
-              and function to make a lasting impression.
+              I guide products from strategy to launch with a thoughtful process that balances clarity, collaboration, and long-term growth.
             </p>
             <Button className="h-12 px-6 dark:hover:bg-zinc-50 border text-black border-zinc-200 bg-zinc-100 rounded-full text-sm font-bold hover:bg-zinc-50 transition-colors active:scale-95 cursor-pointer">
-              Explore my work
+              See how I work
             </Button>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-24 items-start">
           <div className="grid sm:grid-cols-2 ">
-            {featuredProjects.map((v, i) => (
+            {approachSteps.map((v, i) => (
               <m.div
                 key={v.title}
                 initial={{ opacity: 0, y: 15 }}
@@ -95,7 +89,7 @@ export const FeaturedProjects = () => {
               transition={{ duration: 0.5, ease: 'easeOut' }}
               className="space-y-6"
             >
-              {featuredProjects.slice(0, 2).map((project, index) => (
+              {approachSteps.slice(0, 2).map((project, index) => (
                 <div
                   key={project.title}
                   className={`rounded-3xl bg-zinc-100 overflow-hidden shadow-inner group relative ${
@@ -112,11 +106,11 @@ export const FeaturedProjects = () => {
                     className="object-cover size-full grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div
-                    className={`absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-black/50 transition-all duration-300 sm:flex-row ${
+                    className={`absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-black/50 transition-all duration-300 cursor-pointer sm:flex-row ${
                       hoveredProject === project.title ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <a
+                    {/* <a
                       href={project.demoLink}
                       target="_blank"
                       rel="noreferrer noopener"
@@ -133,7 +127,7 @@ export const FeaturedProjects = () => {
                       >
                         GitHub
                       </a>
-                    ) : null}
+                    ) : null} */}
                   </div>
                   <div className="absolute top-3 right-3 z-30 pointer-events-none">
                     <span className="text-2xl sm:text-6xl font-bold text-white/40">
@@ -151,7 +145,7 @@ export const FeaturedProjects = () => {
               transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
               className="space-y-6 pt-12"
             >
-              {featuredProjects.slice(2).map((project, index) => (
+              {approachSteps.slice(2).map((project, index) => (
                 <div
                   key={project.title}
                   className={`rounded-3xl bg-zinc-100 overflow-hidden shadow-inner group relative ${
@@ -172,7 +166,7 @@ export const FeaturedProjects = () => {
                       hoveredProject === project.title ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
-                    <a
+                    {/* <a
                       href={project.demoLink}
                       target="_blank"
                       rel="noreferrer noopener"
@@ -189,7 +183,7 @@ export const FeaturedProjects = () => {
                       >
                         GitHub
                       </a>
-                    ) : null}
+                    ) : null} */}
                   </div>
                   <div className="absolute top-3 right-3 z-30 pointer-events-none">
                     <span className="text-2xl sm:text-6xl font-bold text-white/40">
@@ -201,8 +195,8 @@ export const FeaturedProjects = () => {
             </m.div>
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+      </Container>
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] opacity-80 mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] dark:bg-[radial-gradient(rgba(255,255,255,0.18)_1px,transparent_1px)]"></div>
     </section>
   )
 }
