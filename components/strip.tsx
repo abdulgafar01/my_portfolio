@@ -34,10 +34,10 @@ const Strip = () => {
                     lg:[&:not(:first-child)]:border-hairline
                 "
                             >
-                                <span className="text-muted-ink uppercase eyebrow">
+                                <span className="dark:text-white  text-muted-ink  uppercase eyebrow">
                                     {area.k}
                                 </span>
-                                <span className='text-sm font-medium tracking-[-0.01em] text-ink'>
+                                <span className='text-sm font-medium tracking-[-0.01em] dark:text-gray-100 text-ink'>
                                     {area.v}
                                 </span>
 

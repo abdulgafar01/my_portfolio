@@ -1,18 +1,22 @@
 'use client'
 
 import { m, useMotionValueEvent, useScroll } from 'framer-motion'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FiGithub } from "react-icons/fi";
 import { FaLinkedin } from 'react-icons/fa';
+import { Moon, Sun } from 'lucide-react';
 import clsx from 'clsx'
 import { usePathname } from 'next/navigation'
+import { useTheme } from 'next-themes';
 import { navItems } from '@/data'
 import NavIcon from './navigation/nav-icon'
 
 const Nav = () => {
     const [isHidden, setIsHidden] = useState(false)
+    const [mounted, setMounted] = useState(false)
     const { scrollY } = useScroll();
     const pathname = usePathname();
+    const { resolvedTheme, setTheme } = useTheme();
     const lastYRef = useRef(0);
 
     const isActiveLink = (href: string) => {
@@ -23,6 +27,16 @@ const Nav = () => {
 
         return pathname === href;
     };
+
+    useEffect(() => {
+        const timeoutId = window.setTimeout(() => {
+            setMounted(true)
+        }, 0)
+
+        return () => window.clearTimeout(timeoutId)
+    }, [])
+
+    const isDarkTheme = mounted ? resolvedTheme === 'dark' : false
 
     useMotionValueEvent(scrollY, 'change', (y) => {
         const difference = y - lastYRef.current;
@@ -79,14 +93,33 @@ const Nav = () => {
                     </li>
                     <li className={clsx('hidden', 'sm:block')}>
                         <NavIcon
-                            href="https://www.linkedin.com/in/abdulgafar01"
+                            href="https://www.linkedin.com/in/abdulgafar-busari/"
                             icon={<FaLinkedin className={clsx('h-5 w-5')} />}
                             title="LinkedIn"
                         />
                     </li>
+                    <li className={clsx('hidden', 'sm:block')}>
+                        <button
+                            type="button"
+                            aria-label="Toggle theme"
+                            title="Toggle theme"
+                            onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
+                            className={clsx(
+                                'flex h-9 w-9 items-center justify-center rounded-xl text-white/80 cursor-pointer transition-colors hover:text-white dark:text-gray-900/80 dark:hover:text-gray-900'
+                            )}
+                        >
+                            {isDarkTheme ? (
+                                <Sun className={clsx('h-5 w-5')} />
+                            ) : (
+                                <Moon className={clsx('h-5 w-5')} />
+                            )}
+                        </button>
+                    </li>
                 </ul>
             </nav>
 
+
+            {/* mobile navigation                 */}
             <m.nav
                 initial={{ y: 24, opacity: 0 }}
                 animate={isHidden ? { y: 24, opacity: 0 } : { y: 0, opacity: 1 }}
@@ -123,6 +156,22 @@ const Nav = () => {
                         </m.a>
                     );
                 })}
+
+                <button
+                    type="button"
+                    aria-label="Toggle theme"
+                    title="Toggle theme"
+                    onClick={() => setTheme(isDarkTheme ? 'light' : 'dark')}
+                    className={clsx(
+                        'flex h-9 w-9 items-center justify-center rounded-xl text-white/80 transition-colors hover:text-white'
+                    )}
+                >
+                    {isDarkTheme ? (
+                        <Sun className={clsx('h-5 w-5')} />
+                    ) : (
+                        <Moon className={clsx('h-5 w-5')} />
+                    )}
+                </button>
             </m.nav>
         </m.div>
     )

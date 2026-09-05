@@ -23,6 +23,7 @@
   },
   "registries": {
     "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
-    "@ui-layouts": "https://ui-layouts.com/r/{name}.json"
+    "@ui-layouts": "https://ui-layouts.com/r/{name}.json",
+    "@eldoraui": "https://eldoraui.site/r/{name}.json"
   }
 }

@@ -11,28 +11,28 @@ const approachSteps = [
     title: 'Discovery & Strategy',
     description:
       'Every successful product starts with understanding the problem. I take time to learn about the users, business goals, and project requirements before making technical decisions.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop',
   },
   {
     number: '02',
     title: 'Design & Architecture',
     description:
       'Before development begins, I plan the application structure, user experience, and technical architecture so the product is scalable, maintainable, and built on a strong foundation.',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop',
   },
   {
     number: '03',
     title: 'Development & Collaboration',
     description:
       'This is where ideas become reality. I build responsive, high-performance applications while keeping you informed through regular progress updates, demos, and feedback loops.',
-    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop',
   },
   {
     number: '04',
     title: 'Testing, Launch & Improvement',
     description:
       'Before launch, every feature is tested for performance, accessibility, and reliability. After deployment, I continue refining the product as user needs and business goals evolve.',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop',
   },
 ]
 
@@ -162,7 +162,7 @@ export const MyApproach = () => {
                     className="object-cover size-full grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                   <div
-                    className={`absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-black/50 transition-all duration-300 sm:flex-row ${
+                    className={`absolute inset-0 z-20 flex flex-col items-center justify-center  cursor-pointer gap-3 bg-black/50 transition-all duration-300 sm:flex-row ${
                       hoveredProject === project.title ? 'opacity-100' : 'opacity-0'
                     }`}
                   >

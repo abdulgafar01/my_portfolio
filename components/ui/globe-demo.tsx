@@ -400,9 +400,9 @@ export default function GlobeDemo({
   ];
 
   return (
-    <div className={`flex h-full w-full items-center justify-center overflow-hidden rounded-3xl bg-transparent ${className}`}>
-      <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4">
-        <m.div
+    <div>
+      {/* <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4"> */}
+        {/* <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -414,12 +414,12 @@ export default function GlobeDemo({
           <p className="mx-auto mt-2 max-w-md text-center text-sm text-slate-300 md:text-base">
             I design and develop thoughtful digital products that connect ideas, people, and brands across the world.
           </p>
-        </m.div>
-        <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-b from-transparent to-slate-950/70" />
+        </m.div> */}
+        {/* <div className="absolute inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-b from-transparent to-slate-950/70" />
         <div className="absolute inset-x-0 bottom-[-5rem] h-72 cursor-grab md:h-full active:cursor-grabbing">
-          <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
-      </div>
+      </div> */}
+          <World data={sampleArcs} globeConfig={globeConfig} />
     </div>
   );
 }

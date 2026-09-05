@@ -106,7 +106,7 @@ const CountDownRing = ({ label }: { label: string }) => {
                />
 
             </svg>
-            <span className=' font-mono text-[11px] text-ink tabular-nums'>
+            <span className=' font-mono text-[11px] dark:text-white text-ink tabular-nums'>
                 {label}
                 
             </span>
@@ -119,13 +119,14 @@ const CarouselArrows = ({ onPrev, onNext }: { onPrev: () => void, onNext: () => 
         <div className="flex items-center gap-3 mt-auto border-hairline-soft">
             <button
              onClick={onPrev}
-             className="cursor-pointer grid place-items-center size-10 rounded-full border border-hairline-strong bg-surface-card text-ink 
+             className="cursor-pointer grid place-items-center size-10 rounded-full border border-hairline-strong bg-surface-card  dark:text-white text-ink 
              transition-colors  hover:text-ink">
                 <ArrowLeftIcon size={16} />
             </button>
 
             <button
-            onClick={onNext} className="cursor-pointer grid place-items-center size-10 rounded-full border border-hairline-strong bg-surface-card text-ink 
+            onClick={onNext}
+            className="cursor-pointer grid place-items-center size-10 rounded-full border border-hairline-strong bg-surface-card dark:text-white text-ink 
              transition-colors  hover:text-ink">
                 <ArrowRightIcon size={16}  />
             </button>
@@ -165,7 +166,7 @@ const ProjectCard = ({ project,isActive }: { project: Project, isActive: boolean
                                     /
                                     {project.index}
                                 </span>
-                                <span className="ml-auto font-mono text-[11px] tracking-[0.11em] texet-muted-ink">
+                                <span className="ml-auto font-mono text-[11px] tracking-[0.11em] text-muted-ink">
                                     {project.year}
                                 </span>
                             </div>
@@ -173,14 +174,14 @@ const ProjectCard = ({ project,isActive }: { project: Project, isActive: boolean
                             <h3 className="p-6 text-[1.625rem] tracking-[0.125em]">
                                 {project.title}
                             </h3>
-                            <p className="mt-3 max-w-4xl text-[15px] leading-[1.6] text-body">
+                            <p className="mt-3 max-w-4xl text-[15px] leading-[1.6] dark:text-white text-body">
                                 {project.description}
                             </p>
 
                             <div className="mt-4 flex flex-wrap items-center gap-2">
                                 {
                                     project.tags.map((tag, index) => (
-                                        <Badge key={index} variant="outline" className="rounded-full border-hairline px-2 py-1 text-[10px] font-mono tracking-[0.1em] text-ink">
+                                        <Badge key={index} variant="outline" className="rounded-full border-hairline px-2 py-1 text-[10px] font-mono tracking-[0.1em] dark:text-white text-ink mb-2">
                                             {tag}
                                         </Badge> 
                                     ))
@@ -188,7 +189,7 @@ const ProjectCard = ({ project,isActive }: { project: Project, isActive: boolean
                             </div>
                                     <div className="mt-auto flex items-center justify-between gap-3 border-t border-hairline-soft pt-5">
 
-                        <Link href={project.href} className="inline-flex items-center gap-2 border-b border-transparent pb-1/2 text-sm font-medium text-ink hover:gap-3 hover:border-ink
+                        <Link href={project.href} className="inline-flex items-center gap-2 border-b border-transparent pb-1/2 text-sm font-medium dark:text-white text-ink hover:gap-3 hover:border-ink
                          transition-{gap,border} 
                          " aria-label={`View ${project.title} project`}>
                                 View Case Study <ArrowUpRightIcon size={16}  />
@@ -237,14 +238,14 @@ const SelectedWork = () => {
             <div className="mx-auto w-full max-w-[1240px] px-6 sm:px-10 pt-20 sm:pt-28">
                 <div className="flex items-start justify-between gap-6 sm:gap-10">
                     <div className="flex items-center gap-3">
-                        <span className="text-muted-ink eyebrow">
+                        <span className="dark:text-white text-muted-ink eyebrow">
                             01
                         </span>
-                        <span className="text-ink eyebrow uppercase">
+                        <span className="dark:text-white text-ink eyebrow uppercase">
                             Selected Work
                         </span>
                     </div>
-                    <span className="font-mono text-[11px] tracking-[0.1em] text-muted-ink uppercase">2024-2026</span>
+                    {/* <span className="font-mono text-[11px] tracking-[0.1em] text-muted-ink uppercase">2024-2026</span> */}
                 </div>
 
                 <h2 className="mt-10 max-w-[20ch] text-[clamp(2rem,4.4vw,2.75rem)]  tracking-tight">
@@ -287,7 +288,7 @@ const SelectedWork = () => {
                                                     <span className={
                                                         cn(
                                                             "text-[14px] leading-snug transition-colors ",
-                                                            isActive ? 'text-ink' : 'text-muted-ink group-hover:text-body '
+                                                            isActive ? 'text-ink dark:text-white' : 'text-muted-ink group-hover:text-body '
                                                         )
                                                     }>{project.title}</span>
                                                 </button>

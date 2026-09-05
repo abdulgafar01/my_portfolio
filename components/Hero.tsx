@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "./ui/text-generate-effect";
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden pb-20 pt-36">
+    <div className="relative h-[90vh] overflow-hidden pb-20 pt-36">
       <div>
         {/* <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-60"
@@ -44,7 +44,7 @@ const Hero = () => {
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
          
           <TextGenerateEffect
-            words="Transforming Concepts into Seamless User Experiences"
+            words="Transforming Concepts into Finished Products"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 

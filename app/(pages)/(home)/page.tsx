@@ -6,6 +6,7 @@ import Hero from '@/components/Hero'
 import ScrollText from '@/components/ScrollRevealParagraph'
 import Strip from '@/components/strip'
 import Container from '@/components/layout/Container'
+import ProjectHighlights from '@/components/ProjectHighlights'
 
 
 const page = () => {
@@ -40,7 +41,8 @@ const page = () => {
 
       <SelectedWork />
       <Container>
-        <Grid />
+        {/* <Grid /> */}
+        <ProjectHighlights/>
       </Container>
       <MyApproach />
 

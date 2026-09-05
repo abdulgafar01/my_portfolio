@@ -3,8 +3,8 @@ import { FolderKanban, User, Home, PenSquare } from 'lucide-react';
 export const navItems = [
   { name: 'Home', link: '/', icon: Home },
   { name: 'Projects', link: '/projects', icon: FolderKanban },
-  { name: 'Blog', link: '/blog', icon: PenSquare },
-  { name: 'About', link: '/about', icon: User },
+  // { name: 'Blog', link: '/blog', icon: PenSquare },
+  // { name: 'About', link: '/about', icon: User },
 ];
 
 export const gridItems = [

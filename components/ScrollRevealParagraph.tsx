@@ -29,10 +29,10 @@ function ScrollRevealParagraph({
       className={`text-center text-5xl md:text-5xl font-medium leading-[1.15] tracking-tight ${className}`}
     >
       {words.map((word, i) => {
-        const step = 1 / words.length;
+        const step = 1 / Math.max(words.length, 1);
 
-        const start = i * step;
-        const end = start + step * 1.5;
+        const start = Math.max(0, i * step - 0.05);
+        const end = Math.min(1, start + step * 0.85);
 
         return (
           <Word
@@ -84,7 +84,7 @@ export default function ScrollText() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start center", "end center"],
+    offset: ["start 0.85", "end 0.2"],
   });
 
   const longParagraph = `From idea to launch. Clean, scalable digital products built to move fast, stay simple, and perform in real-world use, driven by clarity, structured systems, and intentional design.`;
@@ -92,7 +92,7 @@ export default function ScrollText() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[1150vh] w-full bg-white dark:bg-black-100"
+      className="relative h-[600vh] w-full bg-white dark:bg-black-100"
     >
       <div className="sticky top-0 flex h-screen items-center justify-center">
         <div className="max-w-6xl px-8">
