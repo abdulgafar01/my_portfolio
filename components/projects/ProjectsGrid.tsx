@@ -2,7 +2,7 @@
 
 import { m } from 'framer-motion'
 import { ProjectCard } from './ProjectCard'
-import type { Project } from '@/data/projects'
+import type { Project } from '@/types/project'
 
 interface ProjectsGridProps {
   projects: Project[]

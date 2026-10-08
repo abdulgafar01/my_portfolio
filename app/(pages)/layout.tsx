@@ -8,7 +8,9 @@ export default function PagesLayout({
 }) {
   return <>
   <Header/>
+  <main className="min-h-screen"> 
   {children}
+  </main>
   <Footer/>
   </>;
 }
