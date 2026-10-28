@@ -1,6 +1,23 @@
 
 import { z } from "zod";
 
+const completedAtSchema = z.preprocess((value) => {
+  if (typeof value !== "string") {
+    return value;
+  }
+
+  const trimmed = value.trim();
+  if (trimmed === "") {
+    return undefined;
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+    return new Date(`${trimmed}T00:00:00.000Z`).toISOString();
+  }
+
+  return trimmed;
+}, z.string().datetime().nullable().optional());
+
 export const updateProjectSchema = z
   .object({
     title: z.string().trim().min(1).max(120).optional(),
@@ -17,18 +34,30 @@ export const updateProjectSchema = z
 
     description: z.string().trim().min(1).optional(),
 
-    coverImage: z.string().trim().max(2048).nullable().optional(),
+    coverImage: z.preprocess(
+      (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+      z.string().trim().max(2048).nullable().optional(),
+    ),
 
-    liveUrl: z.string().url().nullable().optional(),
-    githubUrl: z.string().url().nullable().optional(),
-    caseStudyUrl: z.string().url().nullable().optional(),
+    liveUrl: z.preprocess(
+      (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+      z.string().url().nullable().optional(),
+    ),
+    githubUrl: z.preprocess(
+      (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+      z.string().url().nullable().optional(),
+    ),
+    caseStudyUrl: z.preprocess(
+      (value) => (typeof value === "string" && value.trim() === "" ? undefined : value),
+      z.string().url().nullable().optional(),
+    ),
 
     featured: z.boolean().optional(),
     published: z.boolean().optional(),
 
     displayOrder: z.number().int().min(0).optional(),
 
-    completedAt: z.string().datetime().nullable().optional(),
+    completedAt: completedAtSchema,
 
     technologyIds: z.array(z.cuid()).max(30).optional(),
     categoryIds: z.array(z.cuid()).max(10).optional(),

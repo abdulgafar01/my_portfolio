@@ -16,7 +16,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 
 export const Footer = () => {
   return (
-    <section className="bg-neutral-100 dark:bg-black-100 pt-40 ">
+    <section className=" dark:bg-black-100 pt-40 ">
         {/* Floating Call to Action */}
       {/* <div className="w-[80%] mx-auto px-6"> */}
         {/* <div className="relative z-10 -mb-24">

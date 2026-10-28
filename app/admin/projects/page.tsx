@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ProjectTableActions } from "@/components/admin/project-table-actions";
 import { getAdminProjects, getCategories, getTechnologies } from "@/lib/queries/projects";
 
 function toString(value: string | string[] | undefined) {
@@ -154,20 +155,7 @@ export default async function AdminProjectsPage({
                     {new Date(project.updatedAt).toLocaleDateString()}
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex gap-2">
-                      <Link
-                        href={`/admin/projects/${project.id}`}
-                        className="rounded-lg border border-slate-700 px-2.5 py-1.5 text-xs text-slate-200 hover:border-sky-400 hover:text-white"
-                      >
-                        View
-                      </Link>
-                      <Link
-                        href={`/admin/projects/${project.id}/edit`}
-                        className="rounded-lg border border-slate-700 px-2.5 py-1.5 text-xs text-slate-200 hover:border-sky-400 hover:text-white"
-                      >
-                        Edit
-                      </Link>
-                    </div>
+                    <ProjectTableActions projectId={project.id} />
                   </td>
                 </tr>
               ))}

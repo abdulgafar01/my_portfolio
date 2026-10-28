@@ -1,11 +1,32 @@
 import { z } from "zod";
 
-const optionalUrl = z
-  .string()
-  .trim()
-  .url("Enter a valid URL.")
-  .optional()
-  .or(z.literal(""));
+const completedAtSchema = z.preprocess((value) => {
+  if (typeof value !== "string") {
+    return value;
+  }
+
+  const trimmed = value.trim();
+  if (trimmed === "") {
+    return undefined;
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+    return new Date(`${trimmed}T00:00:00.000Z`).toISOString();
+  }
+
+  return trimmed;
+}, z.string().datetime().optional().nullable());
+
+const optionalUrl = z.preprocess(
+  (value) => {
+    if (typeof value !== "string") {
+      return value;
+    }
+
+    return value.trim() === "" ? undefined : value;
+  },
+  z.string().trim().url("Enter a valid URL.").optional(),
+);
 
 export const createProjectSchema = z.object({
   title: z
@@ -48,7 +69,7 @@ export const createProjectSchema = z.object({
 
   displayOrder: z.number().int().min(0).default(0),
 
-  completedAt: z.iso.datetime().optional().nullable(),
+  completedAt: completedAtSchema,
 
   // Technology names, e.g. ["Next.js", "TypeScript"]
 //   technologies: z
